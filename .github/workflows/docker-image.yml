@@ -14,5 +14,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag proxmox-qdevice:$(date +%s) --tag proxmox-qdevice:latest
+    - uses: docker/build-push-action@v6
+      name: Build and push
+      with:
+        push: true
+        tags: marijndoeve/proxmox-qdevice:latest
+
+      
